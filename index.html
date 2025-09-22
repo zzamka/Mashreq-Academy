@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية المشرق الثانية الخاصة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a56db;
+            --secondary-color: #0e2e71;
+            --accent-color: #ff9e1f;
+            --light-color: #f3f4f6;
+            --dark-color: #1f2937;
+            --font-heading: 'El Messiri', 'Cairo', sans-serif;
+            --font-body: 'Cairo', 'Tahoma', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        body[dir="ltr"] {
+            --font-heading: 'Poppins', 'Arial', sans-serif;
+            --font-body: 'Open Sans', 'Arial', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* رأس الصفحة */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            height: 65px;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo {
+            height: 55px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* تصميم أنيق لأيقونة تبديل اللغة */
+        .language-switcher {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 86, 219, 0.4);
+        }
+        
+        .lang-btn:active {
+            transform: translateY(0);
+        }
+        
+        .lang-btn i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .lang-btn:hover i {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* قسم الهيرو */
+        .hero {
+            background: linear-gradient(rgba(14, 46, 113, 0.85), rgba(26, 86, 219, 0.9)), url('Academy.png') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 90px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 158, 31, 0.4);
+            animation: fadeInUp 1.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e58c17;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 158, 31, 0.5);
+        }
+        
+        .btn:hover:before {
+            transform: translateY(0);
+        }
+        
+        /* الأقسام */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        /* الخدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 50px;
+        }
+        
+        .service-content {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .service-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* الأخبار */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .news-img {
+            height: 220px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .news-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* التواصل */
+        .contact {
+            background: linear-gradient(to bottom, #f9fafc, #ffffff);
+            position: relative;
+        }
+        
+        .contact:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Academy.png') no-repeat center center/cover;
+            opacity: 0.05;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 35px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details i {
+            margin-left: 15px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            width: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.2);
+            outline: none;
+        }
+        
+        .contact-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: linear-gradient(to right, var(--secondary-color), #0a1f4d);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-about p {
+            color: #ddd;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+        
+        /* تأثيرات الحركة */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                background-color: white;
+                width: 300px;
+                height: 100vh;
+                flex-direction: column;
+                padding: 50px 30px;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s ease;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0 0 25px 0;
+            }
+            
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+                min-height: 80vh;
+            }
+            
+            .services-grid,
+            .news-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .service-card,
+            .news-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            .logo {
+                height: 55px;
+            }
+            
+            header.scrolled .logo {
+                height: 45px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .lang-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl" lang="ar">
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container header-container">
+            <a href="#">
+                <img src="Academy.png" alt="شعار أكاديمية المشرق الثانية" class="logo">
+            </a>
+            
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            
+            <ul class="nav-menu">
+                <li><a href="#" data-i18n="nav.home">الرئيسية</a></li>
+                <li><a href="#" data-i18n="nav.about">عن الأكاديمية</a></li>
+                <li><a href="#" data-i18n="nav.programs">البرامج التعليمية</a></li>
+                <li><a href="#" data-i18n="nav.news">أخبار وفعاليات</a></li>
+                <li><a href="#" data-i18n="nav.contact">اتصل بنا</a></li>
+            </ul>
+            
+            <div class="language-switcher">
+                <button class="lang-btn" id="langToggle">
+                    <i class="fas fa-globe-americas"></i>
+                    <span id="currentLang">العربية</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الهيرو -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 data-i18n="hero.title">أكاديمية المشرق الثانية الخاصة</h1>
+            <p data-i18n="hero.subtitle">نحو مستقبل تعليمي مشرق، نؤسس لجيل مبدع وخلاق مع أفضل المناهج التعليمية وأحدث الوسائل التكنولوجية</p>
+            <a href="#" class="btn" data-i18n="hero.button">اكتشف المزيد <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- قسم عن الأكاديمية -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title animate">
+                <h2 data-i18n="about.title">عن أكاديميتنا</h2>
+                <p data-i18n="about.subtitle">تأسست أكاديمية المشرق الثانية الخاصة بهدف تقديم تعليم متميز يجمع بين الأصالة والابتكار</p>
+            </div>
+            <div class="animate" style="animation-delay: 0.2s;">
+                <p style="font-size: 1.2rem; text-align: center; max-width: 900px; margin: 0 auto; line-height: 1.9;" data-i18n="about.description">
+                    نعمل على إعداد طلابنا ليصبحوا قادة المستقبل من خلال بيئة تعليمية محفزة ومناهج متطورة واهتمام فردي بكل طالب. 
+                    نحن نؤمن بأن التعليم هو أساس تقدم الأمم، لذلك نسعى دائمًا لتقديم الأفضل في مجال التعليم بتقنيات حديثة 
+                    ومعلمين مؤهلين ومرافق تعليمية متطورة.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="section" style="background-color: #f9fafc;">
+        <div class="container">
+            <div class="section-title animate">
+                <h2 data-i18n="programs.title">برامجنا التعليمية</h2>
+                <p data-i18n="programs.subtitle">نقدم مجموعة متكاملة من البرامج التعليمية المصممة خصيصًا لتنمية مهارات الطلاب</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="programs.primary.title">المرحلة الابتدائية</h3>
+                        <p data-i18n="programs.primary.description">برنامج تعليمي متكامل يركز على بناء الأساس المتين في المواد الأساسية وتنمية المهارات الاجتماعية والابداعية لدى الطلاب</p>
+                    </div>
+                </div>
+                <div class="service-card animate" style="animation-delay: 0.4s;">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="programs.middle.title">المرحلة المتوسطة</h3>
+                        <p data-i18n="programs.middle.description">تطوير المهارات الأكاديمية والتفكير النقدي مع تقديم أنشطة لا صفية متنوعة تنمي مواهب الطلاب وقدراتهم</p>
+                    </div>
+                </div>
+                <div class="service-card animate" style="animation-delay: 0.6s;">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="programs.high.title">المرحلة الثانوية</h3>
+                        <p data-i18n="programs.high.description">الإعداد للجامعة والحياة العملية من خلال برامج متخصصة وتوجيه مهني مكثف وتهيئة الطلاب لسوق العمل</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأخبار -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title animate">
+                <h2 data-i18n="news.title">أحدث الأخبار والفعاليات</h2>
+                <p data-i18n="news.subtitle">تعرف على آخر أخبار الأكاديمية والفعاليات القادمة</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card animate" style="animation-delay: 0.2s;">
+                    <div class="news-img" style="background-image: url('Academy.png');">
+                        <div class="news-date" data-i18n="news.1.date">15 سبتمبر 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="news.1.title">حفل تكريم الطلاب المتفوقين</h3>
+                        <p data-i18n="news.1.description">تحت رعاية مديرية التربية والتعليم، تقيم الأكاديمية حفلها السنوي لتكريم الطلاب المتفوقين في جميع المراحل الدراسية</p>
+                    </div>
+                </div>
+                <div class="news-card animate" style="animation-delay: 0.4s;">
+                    <div class="news-img" style="background-image: url('Academy.png');">
+                        <div class="news-date" data-i18n="news.2.date">10 سبتمبر 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="news.2.title">ورشة عمل في الروبوتات</h3>
+                        <p data-i18n="news.2.description">ورشة عمل متخصصة في مجال البرمجة والروبوتات لطلاب المراحل المتوسطة والثانوية بالتعاون مع شركات تقنية رائدة</p>
+                    </div>
+                </div>
+                <div class="news-card animate" style="animation-delay: 0.6s;">
+                    <div class="news-img" style="background-image: url('Academy.png');">
+                        <div class="news-date" data-i18n="news.3.date">5 سبتمبر 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="news.3.title">بداية العام الدراسي الجديد</h3>
+                        <p data-i18n="news.3.description">استعدادات الأكاديمية لاستقبال العام الدراسي الجديد بتجهيزات خاصة وتطوير المناهج وافتتاح مرافق جديدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section class="section contact">
+        <div class="container">
+            <div class="section-title animate">
+                <h2 data-i18n="contact.title">تواصل معنا</h2>
+                <p data-i18n="contact.subtitle">يسعدنا تواصلكم معنا لمعرفة المزيد عن أكاديمية المشرق الثانية الخاصة</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info animate" style="animation-delay: 0.2s;">
+                    <h3 data-i18n="contact.info.title">معلومات التواصل</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.info.address">العنوان: مدينة الرياض، حي المشرق، شارع الملك فهد</span></p>
+                        <p><i class="fas fa-phone"></i> <span data-i18n="contact.info.phone">الهاتف: 0112345678</span></p>
+                        <p><i class="fas fa-envelope"></i> <span data-i18n="contact.info.email">البريد الإلكتروني: info@mashreq.edu.sa</span></p>
+                    </div>
+                    <h3 data-i18n="contact.social.title">وسائل التواصل الاجتماعي</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form animate" style="animation-delay: 0.4s;">
+                    <form>
+                        <input type="text" placeholder="الاسم الكامل" data-i18n-placeholder="contact.form.name" required>
+                        <input type="email" placeholder="البريد الإلكتروني" data-i18n-placeholder="contact.form.email" required>
+                        <input type="tel" placeholder="رقم الهاتف" data-i18n-placeholder="contact.form.phone">
+                        <textarea placeholder="رسالتك" data-i18n-placeholder="contact.form.message" required></textarea>
+                        <button type="submit" class="btn" data-i18n="contact.form.button">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="Academy.png" alt="شعار أكاديمية المشرق الثانية" class="footer-logo">
+                    <p data-i18n="footer.about">أكاديمية المشرق الثانية الخاصة، مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم متميز يجمع بين الأصالة والابتكار لتخريج جيل قادر على مواجهة تحديات المستقبل.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.links.quick">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="nav.home">الرئيسية</a></li>
+                        <li><a href="#" data-i18n="nav.about">عن الأكاديمية</a></li>
+                        <li><a href="#" data-i18n="nav.programs">البرامج التعليمية</a></li>
+                        <li><a href="#" data-i18n="nav.news">أخبار وفعاليات</a></li>
+                        <li><a href="#" data-i18n="nav.contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.links.services">الخدمات</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="programs.primary.title">المرحلة الابتدائية</a></li>
+                        <li><a href="#" data-i18n="programs.middle.title">المرحلة المتوسطة</a></li>
+                        <li><a href="#" data-i18n="programs.high.title">المرحلة الثانوية</a></li>
+                        <li><a href="#" data-i18n="footer.links.activities">الأنشطة اللاصفية</a></li>
+                        <li><a href="#" data-i18n="footer.links.support">برامج الدعم</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.links.social">وسائل التواصل</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.social.twitter">Twitter</a></li>
+                        <li><a href="#" data-i18n="footer.social.facebook">Facebook</a></li>
+                        <li><a href="#" data-i18n="footer.social.instagram">Instagram</a></li>
+                        <li><a href="#" data-i18n="footer.social.youtube">YouTube</a></li>
+                        <li><a href="#" data-i18n="footer.social.linkedin">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-i18n="footer.copyright">جميع الحقوق محفوظة © 2025 أكاديمية المشرق الثانية الخاصة | تطوير شركة شارك تكنولوجي</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // كائنات النصوص للغتين
+        const translations = {
+            ar: {
+                // التنقل
+                "nav.home": "الرئيسية",
+                "nav.about": "عن الأكاديمية",
+                "nav.programs": "البرامج التعليمية",
+                "nav.news": "أخبار وفعاليات",
+                "nav.contact": "اتصل بنا",
+                
+                // الهيرو
+                "hero.title": "أكاديمية المشرق الثانية الخاصة",
+                "hero.subtitle": "نحو مستقبل تعليمي مشرق، نؤسس لجيل مبدع وخلاق مع أفضل المناهج التعليمية وأحدث الوسائل التكنولوجية",
+                "hero.button": "اكتشف المزيد",
+                
+                // عن الأكاديمية
+                "about.title": "عن أكاديميتنا",
+                "about.subtitle": "تأسست أكاديمية المشرق الثانية الخاصة بهدف تقديم تعليم متميز يجمع بين الأصالة والابتكار",
+                "about.description": "نعمل على إعداد طلابنا ليصبحوا قادة المستقبل من خلال بيئة تعليمية محفزة ومناهج متطورة واهتمام فردي بكل طالب. نحن نؤمن بأن التعليم هو أساس تقدم الأمم، لذلك نسعى دائمًا لتقديم الأفضل في مجال التعليم بتقنيات حديثة ومعلمين مؤهلين ومرافق تعليمية متطورة.",
+                
+                // البرامج التعليمية
+                "programs.title": "برامجنا التعليمية",
+                "programs.subtitle": "نقدم مجموعة متكاملة من البرامج التعليمية المصممة خصيصًا لتنمية مهارات الطلاب",
+                "programs.primary.title": "المرحلة الابتدائية",
+                "programs.primary.description": "برنامج تعليمي متكامل يركز على بناء الأساس المتين في المواد الأساسية وتنمية المهارات الاجتماعية والابداعية لدى الطلاب",
+                "programs.middle.title": "المرحلة المتوسطة",
+                "programs.middle.description": "تطوير المهارات الأكاديمية والتفكير النقدي مع تقديم أنشطة لا صفية متنوعة تنمي مواهب الطلاب وقدراتهم",
+                "programs.high.title": "المرحلة الثانوية",
+                "programs.high.description": "الإعداد للجامعة والحياة العملية من خلال برامج متخصصة وتوجيه مهني مكثف وتهيئة الطلاب لسوق العمل",
+                
+                // الأخبار
+                "news.title": "أحدث الأخبار والفعاليات",
+                "news.subtitle": "تعرف على آخر أخبار الأكاديمية والفعاليات القادمة",
+                "news.1.date": "15 سبتمبر 2025",
+                "news.1.title": "حفل تكريم الطلاب المتفوقين",
+                "news.1.description": "تحت رعاية مديرية التربية والتعليم، تقيم الأكاديمية حفلها السنوي لتكريم الطلاب المتفوقين في جميع المراحل الدراسية",
+                "news.2.date": "10 سبتمبر 2025",
+                "news.2.title": "ورشة عمل في الروبوتات",
+                "news.2.description": "ورشة عمل متخصصة في مجال البرمجة والروبوتات لطلاب المراحل المتوسطة والثانوية بالتعاون مع شركات تقنية رائدة",
+                "news.3.date": "5 سبتمبر 2025",
+                "news.3.title": "بداية العام الدراسي الجديد",
+                "news.3.description": "استعدادات الأكاديمية لاستقبال العام الدراسي الجديد بتجهيزات خاصة وتطوير المناهج وافتتاح مرافق جديدة",
+                
+                // التواصل
+                "contact.title": "تواصل معنا",
+                "contact.subtitle": "يسعدنا تواصلكم معنا لمعرفة المزيد عن أكاديمية المشرق الثانية الخاصة",
+                "contact.info.title": "معلومات التواصل",
+                "contact.info.address": "العنوان: مدينة الرياض، حي المشرق، شارع الملك فهد",
+                "contact.info.phone": "الهاتف: 0112345678",
+                "contact.info.email": "البريد الإلكتروني: info@mashreq.edu.sa",
+                "contact.social.title": "وسائل التواصل الاجتماعي",
+                "contact.form.name": "الاسم الكامل",
+                "contact.form.email": "البريد الإلكتروني",
+                "contact.form.phone": "رقم الهاتف",
+                "contact.form.message": "رسالتك",
+                "contact.form.button": "إرسال الرسالة",
+                
+                // الفوتر
+                "footer.about": "أكاديمية المشرق الثانية الخاصة، مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم متميز يجمع بين الأصالة والابتكار لتخريج جيل قادر على مواجهة تحديات المستقبل.",
+                "footer.links.quick": "روابط سريعة",
+                "footer.links.services": "الخدمات",
+                "footer.links.activities": "الأنشطة اللاصفية",
+                "footer.links.support": "برامج الدعم",
+                "footer.links.social": "وسائل التواصل",
+                "footer.social.twitter": "Twitter",
+                "footer.social.facebook": "Facebook",
+                "footer.social.instagram": "Instagram",
+                "footer.social.youtube": "YouTube",
+                "footer.social.linkedin": "LinkedIn",
+                "footer.copyright": "جميع الحقوق محفوظة © 2025 أكاديمية المشرق الثانية الخاصة | تطوير شركة شارك تكنولوجي"
+            },
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.about": "About Us",
+                "nav.programs": "Educational Programs",
+                "nav.news": "News & Events",
+                "nav.contact": "Contact Us",
+                
+                // Hero
+                "hero.title": "Al Mashreq Second Private Academy",
+                "hero.subtitle": "Towards a bright educational future, we establish a creative and innovative generation with the best curricula and latest technological means",
+                "hero.button": "Discover More",
+                
+                // About
+                "about.title": "About Our Academy",
+                "about.subtitle": "Al Mashreq Second Private Academy was established to provide distinguished education that combines authenticity and innovation",
+                "about.description": "We work to prepare our students to become future leaders through a stimulating educational environment, advanced curricula, and individual attention for each student. We believe that education is the foundation of nations' progress, so we always strive to provide the best in education with modern techniques, qualified teachers, and advanced educational facilities.",
+                
+                // Programs
+                "programs.title": "Our Educational Programs",
+                "programs.subtitle": "We offer a comprehensive set of educational programs specifically designed to develop students' skills",
+                "programs.primary.title": "Primary Stage",
+                "programs.primary.description": "An integrated educational program focusing on building a solid foundation in basic subjects and developing social and creative skills among students",
+                "programs.middle.title": "Middle Stage",
+                "programs.middle.description": "Developing academic skills and critical thinking while providing various extracurricular activities that develop students' talents and abilities",
+                "programs.high.title": "High School Stage",
+                "programs.high.description": "Preparation for university and practical life through specialized programs, intensive career guidance, and preparing students for the labor market",
+                
+                // News
+                "news.title": "Latest News & Events",
+                "news.subtitle": "Learn about the latest academy news and upcoming events",
+                "news.1.date": "September 15, 2025",
+                "news.1.title": "Honoring Outstanding Students Ceremony",
+                "news.1.description": "Under the patronage of the Directorate of Education, the academy holds its annual ceremony to honor outstanding students in all academic stages",
+                "news.2.date": "September 10, 2025",
+                "news.2.title": "Robotics Workshop",
+                "news.2.description": "A specialized workshop in programming and robotics for middle and high school students in cooperation with leading technology companies",
+                "news.3.date": "September 5, 2025",
+                "news.3.title": "Beginning of the New Academic Year",
+                "news.3.description": "The academy's preparations to receive the new academic year with special preparations, curriculum development, and opening new facilities",
+                
+                // Contact
+                "contact.title": "Contact Us",
+                "contact.subtitle": "We are happy to communicate with you to learn more about Al Mashreq Second Private Academy",
+                "contact.info.title": "Contact Information",
+                "contact.info.address": "Address: Riyadh City, Al Mashreq District, King Fahd Road",
+                "contact.info.phone": "Phone: 0112345678",
+                "contact.info.email": "Email: info@mashreq.edu.sa",
+                "contact.social.title": "Social Media",
+                "contact.form.name": "Full Name",
+                "contact.form.email": "Email Address",
+                "contact.form.phone": "Phone Number",
+                "contact.form.message": "Your Message",
+                "contact.form.button": "Send Message",
+                
+                // Footer
+                "footer.about": "Al Mashreq Second Private Academy, a leading educational institution that aims to provide distinguished education that combines authenticity and innovation to graduate a generation capable of facing future challenges.",
+                "footer.links.quick": "Quick Links",
+                "footer.links.services": "Services",
+                "footer.links.activities": "Extracurricular Activities",
+                "footer.links.support": "Support Programs",
+                "footer.links.social": "Social Media",
+                "footer.social.twitter": "Twitter",
+                "footer.social.facebook": "Facebook",
+                "footer.social.instagram": "Instagram",
+                "footer.social.youtube": "YouTube",
+                "footer.social.linkedin": "LinkedIn",
+                "footer.copyright": "All Rights Reserved © 2025 Al Mashreq Second Private Academy | Developed by Sharek Technology"
+            }
+        };
+
+        // حالة اللغة الحالية
+        let currentLang = 'ar';
+
+        // وظيفة تغيير اللغة
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            
+            // تغيير اتجاه الصفحة
+            document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.lang = currentLang;
+            
+            // تحديث النصوص
+            updateTexts();
+            
+            // تحديث الزر
+            document.getElementById('currentLang').textContent = currentLang === 'ar' ? 'العربية' : 'English';
+            
+            // حفظ التفضيل في localStorage
+            localStorage.setItem('preferredLanguage', currentLang);
+        }
+
+        // وظيفة تحديث النصوص
+        function updateTexts() {
+            // تحديث النصوص العادية
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // تحديث النصوص في عناصر الplaceholder
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang][key]) {
+                    element.placeholder = translations[currentLang][key];
+                }
+            });
+        }
+
+        // تهيئة اللغة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // التحقق من اللغة المحفوظة
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                currentLang = savedLang;
+                document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+                document.body.lang = currentLang;
+                document.getElementById('currentLang').textContent = currentLang === 'ar' ? 'العربية' : 'English';
+            }
+            
+            // تحديث النصوص
+            updateTexts();
+            
+            // إضافة مستمع الحدث لزر تبديل اللغة
+            document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+        });
+
+        // تبديل القائمة في الجوال
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // تأثير التمرير على الهيدر
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // تأثير الظهور عند التمرير
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
